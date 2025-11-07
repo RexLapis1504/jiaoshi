@@ -26,20 +26,51 @@ The system uses a multi-agent architecture:
 
 ## 🚀 Quick Start
 
-### Installation
+### Option 1: Automated Setup (Recommended)
 
 ```bash
 # Clone the repository
 git clone https://github.com/RexLapis1504/jiaoshi.git
 cd jiaoshi
 
-# Install dependencies
-pip install -r requirements.txt
+# Run setup script
+./setup.sh
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Start the application
+python app.py
 ```
 
-### Running the Application
+### Option 2: Docker
 
 ```bash
+# Clone the repository
+git clone https://github.com/RexLapis1504/jiaoshi.git
+cd jiaoshi
+
+# Set API key (optional)
+export OPENAI_API_KEY="your-api-key-here"
+
+# Run with Docker Compose
+docker-compose up
+```
+
+### Option 3: Manual Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/RexLapis1504/jiaoshi.git
+cd jiaoshi
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
 # Set OpenAI API key (optional, for AI grading)
 export OPENAI_API_KEY="your-api-key-here"
 
@@ -175,6 +206,39 @@ The system handles:
 - **Batch failures** - Continue processing remaining papers
 
 Papers with issues are automatically flagged for manual review.
+
+## 🚀 Deployment
+
+### Local Development
+```bash
+python app.py
+```
+
+### Production with Docker
+```bash
+docker-compose up -d
+```
+
+### Cloud Deployment
+
+#### Heroku
+```bash
+# Create Heroku app
+heroku create your-app-name
+
+# Set environment variables
+heroku config:set OPENAI_API_KEY=your-api-key
+
+# Deploy
+git push heroku main
+```
+
+#### AWS/Azure/GCP
+Use the provided Dockerfile for container-based deployment:
+```bash
+docker build -t jiaoshi .
+docker run -p 7860:7860 -e OPENAI_API_KEY=your-key jiaoshi
+```
 
 ## 🤝 Contributing
 
