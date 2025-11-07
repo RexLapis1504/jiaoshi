@@ -67,7 +67,7 @@ class PaperCheckerUI:
             
             # Process papers
             results = self.batch_processor.process_papers(
-                paper_files=[f.name for f in paper_files],
+                paper_files=[f if isinstance(f, str) else f.name for f in paper_files],
                 mcq_answer_key=mcq_answer_key
             )
             

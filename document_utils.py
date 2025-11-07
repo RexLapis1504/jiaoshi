@@ -12,7 +12,7 @@ from docx import Document
 
 def extract_text_from_pdf(file_path: str) -> str:
     """Extract text from PDF file using multiple methods for robustness."""
-    text = ""
+    text_parts = []
     
     # Try with pdfplumber first (better for tables and layout)
     try:
@@ -20,23 +20,23 @@ def extract_text_from_pdf(file_path: str) -> str:
             for page in pdf.pages:
                 page_text = page.extract_text()
                 if page_text:
-                    text += page_text + "\n"
+                    text_parts.append(page_text)
     except Exception as e:
         print(f"pdfplumber failed: {e}, trying PyPDF2")
     
     # Fallback to PyPDF2 if pdfplumber fails or returns empty
-    if not text.strip():
+    if not text_parts:
         try:
             with open(file_path, 'rb') as file:
                 pdf_reader = PyPDF2.PdfReader(file)
                 for page in pdf_reader.pages:
                     page_text = page.extract_text()
                     if page_text:
-                        text += page_text + "\n"
+                        text_parts.append(page_text)
         except Exception as e:
             print(f"PyPDF2 also failed: {e}")
     
-    return text.strip()
+    return '\n'.join(text_parts).strip()
 
 
 def extract_text_from_docx(file_path: str) -> str:

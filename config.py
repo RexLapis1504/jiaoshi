@@ -74,6 +74,4 @@ def validate_config():
     
     return True
 
-# Validate on import
-if __name__ != "__main__":
-    validate_config()
+# Note: Call validate_config() at application startup if needed

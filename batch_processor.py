@@ -31,15 +31,13 @@ class BatchProcessor:
     
     def process_papers(self,
                        paper_files: List[str],
-                       mcq_answer_key: Optional[Dict[str, str]] = None,
-                       progress_callback: Optional[Callable] = None) -> List[GradingResult]:
+                       mcq_answer_key: Optional[Dict[str, str]] = None) -> List[GradingResult]:
         """
         Process multiple papers with progress tracking.
         
         Args:
             paper_files: List of file paths to papers
             mcq_answer_key: Answer key for MCQ questions
-            progress_callback: Optional callback for progress updates
         
         Returns:
             List of GradingResult objects
@@ -82,8 +80,6 @@ class BatchProcessor:
                         print(f"\nError processing {Path(file_path).name}: {e}")
                     
                     pbar.update(1)
-                    if progress_callback:
-                        progress_callback(pbar.n, len(paper_files))
         
         print(f"\nCompleted: {len(self.results)} papers graded successfully")
         if self.errors:

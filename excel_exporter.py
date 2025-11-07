@@ -131,8 +131,17 @@ class ExcelExporter:
         papers_with_errors = sum(1 for r in results if r.error)
         
         # Average scores
-        avg_mcq = sum(r.mcq_percentage for r in results if r.mcq_percentage is not None) / papers_with_mcq if papers_with_mcq > 0 else 0
-        avg_total = sum(r.total_score for r in results if r.total_score is not None) / len([r for r in results if r.total_score is not None]) if any(r.total_score is not None for r in results) else 0
+        scores_with_mcq = [r for r in results if r.mcq_percentage is not None]
+        if scores_with_mcq:
+            avg_mcq = sum(r.mcq_percentage for r in scores_with_mcq) / len(scores_with_mcq)
+        else:
+            avg_mcq = 0
+        
+        scores_with_total = [r for r in results if r.total_score is not None]
+        if scores_with_total:
+            avg_total = sum(r.total_score for r in scores_with_total) / len(scores_with_total)
+        else:
+            avg_total = 0
         
         summary_data = {
             'Metric': [
