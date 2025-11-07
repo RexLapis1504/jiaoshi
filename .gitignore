@@ -44,5 +44,7 @@ temp/
 *.docx
 *.txt
 !requirements.txt
+!examples/*.txt
+!SUCCESS.txt
 .env
 test_papers/
