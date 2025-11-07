@@ -1,0 +1,35 @@
+# Example answer key format
+# Use this as a template for creating MCQ answer keys
+
+# Format 1: Simple numbered format
+1. A
+2. B
+3. C
+4. D
+5. A
+6. B
+7. C
+8. D
+9. A
+10. B
+
+# Format 2: Question prefix format
+# Q1: A
+# Q2: B
+# Q3: C
+# Q4: D
+# Q5: A
+
+# Format 3: With parentheses
+# 1) A
+# 2) B
+# 3) C
+# 4) D
+# 5) A
+
+# Notes:
+# - Answers can be A, B, C, D, or E
+# - Leading/trailing spaces are automatically trimmed
+# - Case insensitive (a, A both work)
+# - Empty lines are ignored
+# - Comments (lines starting with #) are ignored

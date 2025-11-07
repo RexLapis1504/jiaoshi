@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  jiaoshi:
+    build: .
+    ports:
+      - "7860:7860"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./output:/app/output
+      - ./test_papers:/app/test_papers
+    restart: unless-stopped

@@ -1,0 +1,26 @@
+Name: John Doe
+Student ID: 2024001
+Roll No: CS101
+
+Physics Test - Midterm Exam
+Date: November 7, 2024
+
+Multiple Choice Questions:
+1. A
+2. B
+3. C
+4. D
+5. A
+6. B
+7. C
+8. D
+9. A
+10. B
+
+Subjective Questions:
+
+Q1: Explain Newton's First Law of Motion.
+Answer: Newton's First Law states that an object at rest stays at rest and an object in motion stays in motion with the same speed and in the same direction unless acted upon by an unbalanced force. This is also known as the law of inertia.
+
+Q2: What is the relationship between force, mass, and acceleration?
+Answer: Force equals mass times acceleration (F = ma). This means that the force applied to an object is directly proportional to its acceleration and mass.
